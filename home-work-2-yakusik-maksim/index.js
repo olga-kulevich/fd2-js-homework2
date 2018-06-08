@@ -1,17 +1,40 @@
-var data = [1, 'firstString', 30, 500, true, true, null, 'abc', false, {test: 'Object'}, undefined],
+var data = [42, null, null, 42000, true, true, null, 'foo', false, {}, undefined, undefined, 'bar', { foo: 'bar' }],
     result;
 
 result = prioritySort(data, ['number', 'null', 'string', 'object', 'undefined', 'boolean']);
-//expected result [1, 30, 500, null, 'abc', 'firstString', {test: 'Object'}, undefined, true, true, false]
+//expected result [42, 42000, null, null, null, 'bar', 'foo', { foo: 'bar' }, {}, false, true, true, undefined, undefined]
 
 console.log('result', result);
 
 function prioritySort(array, dataPriority) {
     return array.sort(function (left, right) {
-        // write code here
+        var typeLeft, typeRight;
+        if (isNull(left)) {
+            typeLeft = 'null';
+        } else {
+            typeLeft = typeof(left)
+        }
+        if (isNull(right)) {
+            typeRight = 'null';
+        } else {
+            typeRight = typeof(right);
+        }
+        if (dataPriority.indexOf(typeLeft) < dataPriority.indexOf(typeRight)) {
+            return -1;
+        } else if (dataPriority.indexOf(typeLeft) === dataPriority.indexOf(typeRight)) {
+            if (left < right) {
+                return -1;
+            } else {
+                return 1;
+            }
+        } else {
+            return 1;
+        }
     });
 }
 
 function isNull(value) {
-    // write code here
+    if (value === null) {
+        return true;
+    }
 }
