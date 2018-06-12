@@ -4,7 +4,10 @@ const routeConfig = {
           user: {
               list: 'user-list',
               edit: 'edit-user',
-              create: 'create-user'
+              create: 'create-user',
+              ololo: {
+                lolo: 'lolo42'
+              }
           }
       },
       notFoundPageTemplateId = 'page-not-found',
@@ -15,13 +18,24 @@ $(window).on('hashchange', onHashChange);
 
 function onHashChange() {
     const path = getHashPath(),
-          templateId = getTemplateId(path, routeConfig) || notFoundPageTemplateId;
+          templateId = getTemplateId(routeConfig, path) || notFoundPageTemplateId;
 
     setTemplate(routedElement, templateId);
 }
 
 function getTemplateId(route, path) {
-    return undefined;
+    if (path[0] in route && typeof(route[path[0]]) === 'string') {
+        console.log(route[path[0]]);
+        return route[path[0]];
+    } else if (path[1] in route[path[0]] && typeof(route[path[0]][path[1]]) === 'string') {
+        console.log(route[path[0]][path[1]]);
+        return route[path[0]][path[1]];
+    } else if (path[2] in route[path[0]][path[1]] && typeof(route[path[0]][path[1]][path[2]]) === 'string') {
+        console.log(route[path[0]][path[1]][path[2]]);
+        return route[path[0]][path[1]][path[2]];
+    } else {
+        return undefined;
+    }
 }
 
 function getHashPath() {
