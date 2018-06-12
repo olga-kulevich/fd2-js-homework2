@@ -24,15 +24,14 @@ function onHashChange() {
 }
 
 function getTemplateId(route, path) {
-    if (path[0] in route && typeof(route[path[0]]) === 'string') {
-        console.log(route[path[0]]);
-        return route[path[0]];
-    } else if (path[1] in route[path[0]] && typeof(route[path[0]][path[1]]) === 'string') {
-        console.log(route[path[0]][path[1]]);
-        return route[path[0]][path[1]];
-    } else if (path[2] in route[path[0]][path[1]] && typeof(route[path[0]][path[1]][path[2]]) === 'string') {
-        console.log(route[path[0]][path[1]][path[2]]);
-        return route[path[0]][path[1]][path[2]];
+    if (path[0] in route) {
+        if (typeof(route[path[0]]) === 'string') {
+            return route[path[0]];
+        } else {
+            var subPath = path.slice(1),
+                subRoute = route[path[0]];
+            return getTemplateId(subRoute, subPath);
+        }
     } else {
         return undefined;
     }
