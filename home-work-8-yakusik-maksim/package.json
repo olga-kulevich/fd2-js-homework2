@@ -1,0 +1,13 @@
+{
+  "name": "home-work-8-yakusik-maksim",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "browser-sync start -s -w",
+    "nodeJsSample": "node ./nodeJsSample.js"
+  },
+  "author": "Maksim Yakusik",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.24.4"
+}
