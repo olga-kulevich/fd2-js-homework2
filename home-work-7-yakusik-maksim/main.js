@@ -1,4 +1,5 @@
 (function (global) {
+
     'use strict';
 
     var MatrixUtil = {};
@@ -11,7 +12,7 @@
 
         width = width || height;
 
-        for (var index = 0 ; height > index; index++) {
+        for (var index = 0; height > index; index++) {
             line = new Array(width);
             line.fill(value);
 
@@ -29,15 +30,18 @@
                 }).join('');
             }).join('\n');
         };
-    }
+    };
 
     MatrixUtil.setValueForSector = function (matrix) {
         return function (aY, aX, bY, bX) {
             return function (value) {
-                // write code here
-            };
+                for (var i=aY; i<=bY; i++) {
+                    for (var j=aX; j<=bX; j++) {
+                        matrix[i][j] = value;
+                    }
+                }
+            }
         };
     };
-
 
 })(typeof module !== 'undefined' ? module.exports : window);

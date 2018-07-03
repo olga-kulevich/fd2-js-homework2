@@ -55,31 +55,67 @@ describe('MatrixUtil', function () {
             var matrix = MatrixUtil.create(3, 3, true),
                 setValueForMyMatrix = MatrixUtil.setValueForSector(matrix),
                 setValueForAll = setValueForMyMatrix(0, 0, 2, 2),
-                setValueForLeftPart = setValueForMyMatrix(0, 0, 2, 0);
+                setValueForLeftPart = setValueForMyMatrix(0, 0, 2, 0),
                 setValueForTopPart = setValueForMyMatrix(0, 0, 0, 2);
 
-                setValueForAll(false);
+            setValueForAll(false);
 
-                expect(matrix).toEqual([
-                    [false, false, false],
-                    [false, false, false],
-                    [false, false, false]
+            expect(matrix).toEqual([
+                [false, false, false],
+                [false, false, false],
+                [false, false, false]
                 ]);
 
-                setValueForLeftPart(true);
+            setValueForLeftPart(true);
 
-                expect(matrix).toEqual([
-                    [true, false, false],
-                    [true, false, false],
-                    [true, false, false]
+            expect(matrix).toEqual([
+                [true, false, false],
+                [true, false, false],
+                [true, false, false]
                 ]);
 
-                setValueForTopPart(true);
+            setValueForTopPart(true);
 
-                expect(matrix).toEqual([
-                    [true, true,  true],
-                    [true, false, false],
-                    [true, false, false]
+            expect(matrix).toEqual([
+                [true, true, true],
+                [true, false, false],
+                [true, false, false]
+                ]);
+
+        });
+
+        it('set value for right, center, bottom part', function () {
+            var matrix = MatrixUtil.create(4, 2, false),
+                setValueForMyMatrix = MatrixUtil.setValueForSector(matrix),
+                setValueForRightPart = setValueForMyMatrix(0, 1, 3, 1),
+                setValueForCenterPart = setValueForMyMatrix(1,0, 2, 1),
+                setValueForBottomPart = setValueForMyMatrix(3, 0, 3, 1);
+
+            setValueForRightPart(true);
+
+            expect(matrix).toEqual([
+                [false, true],
+                [false, true],
+                [false, true],
+                [false, true]
+                ]);
+
+            setValueForCenterPart(true);
+
+            expect(matrix).toEqual([
+                [false, true],
+                [true, true],
+                [true, true],
+                [false, true]
+                ]);
+
+            setValueForBottomPart(false);
+
+            expect(matrix).toEqual([
+                [false, true],
+                [true, true],
+                [true, true],
+                [false, false]
                 ]);
         });
     });
