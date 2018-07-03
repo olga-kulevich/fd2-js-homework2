@@ -35,8 +35,8 @@
     MatrixUtil.setValueForSector = function (matrix) {
         return function (aY, aX, bY, bX) {
             return function (value) {
-                for (var i=aY; i<=bY; i++) {
-                    for (var j=aX; j<=bX; j++) {
+                for (var i = aY; i <= bY; i++) {
+                    for (var j = aX; j <= bX; j++) {
                         matrix[i][j] = value;
                     }
                 }
