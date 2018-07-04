@@ -1,0 +1,13 @@
+{
+  "name": "home-work-10-yakusik-maksim",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "browser-sync start -s -w"
+  },
+  "author": "Maksim Yakusik",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "jasmine": "^3.1.0"
+  }
+}
