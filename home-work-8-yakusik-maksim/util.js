@@ -11,15 +11,17 @@
         return function () {
             var params = arguments;
 
-            // TODO need improve code here
-            applyPayloadFunction();
+            clearTimeout(timerId);
+
+            timerId = setTimeout(function () {
+                applyPayloadFunction();
+            }, delayMs);
 
             function applyPayloadFunction() {
                 var result;
 
                  try {
                     result = payloadFunction.apply(null, params);
-
                     callback && callback(result);
                 } catch (err) {
                     if (onError) {
@@ -71,10 +73,8 @@
                         console.error('Error in AppUtil.throttle:', err);
                     }
                 }
-                
             }
-        }
+        };
     };
-
 
 })(typeof module !== 'undefined' ? module.exports : window);
