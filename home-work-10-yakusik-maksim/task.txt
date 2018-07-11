@@ -1,0 +1,3 @@
+Заменить все вызовы xit на it в файле main.spec.js/
+Реализовать функции isValidEmail, isTime, isTimeIn12HourClock так что бы они могли пройти тесты.
+Заготовки функций находятся в файле main.js
