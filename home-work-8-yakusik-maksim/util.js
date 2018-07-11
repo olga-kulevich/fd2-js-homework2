@@ -20,7 +20,7 @@
             function applyPayloadFunction() {
                 var result;
 
-                 try {
+                try {
                     result = payloadFunction.apply(null, params);
                     callback && callback(result);
                 } catch (err) {

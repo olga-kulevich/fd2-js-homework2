@@ -26,7 +26,7 @@
         return {
             input: blockElement.find('input'),
             span: blockElement.find('span')
-        }
+        };
     }
 
     function getFormatedName(input) {
