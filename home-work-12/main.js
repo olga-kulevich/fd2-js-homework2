@@ -1,6 +1,27 @@
 (function (AppUtil) {
 
-    var debounceBlockElements = getBlockElemets('blockWithDebounce'),
+    let setInputListener = (element, callback) => {
+        element.on('input', function (event) {
+            let input = element.val();
+
+            callback(input);
+        });
+    };
+
+    let getBlockElemets = blockId => {
+        let blockElement = $('#' + blockId);
+
+        return {
+            input: blockElement.find('input'),
+            span: blockElement.find('span')
+        };
+    }
+
+    let getFormatedName = input => getSeparateWords(input)
+        .map(toUpperFirstLetter)
+        .join(' ');
+
+    let debounceBlockElements = getBlockElemets('blockWithDebounce'),
         setValueInDebounceSpan = AppUtil.debounce(getFormatedName, 500, function (value) {
             debounceBlockElements.span.text(value || '-');
         }),
@@ -12,36 +33,13 @@
     setInputListener(debounceBlockElements.input, setValueInDebounceSpan);
     setInputListener(throttleBlockElements.input, setValueInThrottleSpan);
 
-    function setInputListener(element, callback) {
-        element.on('input', function (event) {
-            var input = element.val();
 
-            callback(input);
-        });
-    }
 
-    function getBlockElemets(blockId) {
-        var blockElement = $('#' + blockId);
-
-        return {
-            input: blockElement.find('input'),
-            span: blockElement.find('span')
-        };
-    }
-
-    function getFormatedName(input) {
-        return getSeparateWords(input)
-            .map(toUpperFirstLetter)
-            .join(' ');
-    }
-
-    function getSeparateWords(string) {
-        var result;
+    let getSeparateWords = string => {
+        let result;
 
         if (string) {
-            result = string.split(' ').filter(function (word) {
-                return !!word;
-            });
+            result = string.split(' ').filter((word) => !!word);
         } else {
             result = [];
         }
@@ -49,8 +47,8 @@
         return result;
     }
 
-    function toUpperFirstLetter(string) {
-        var result;
+    let toUpperFirstLetter = string => {
+        let result;
 
         if (string) {
             result = string.charAt(0).toUpperCase() +
@@ -60,5 +58,5 @@
         }
 
         return result;
-    }
+    };
 })(AppUtil);
