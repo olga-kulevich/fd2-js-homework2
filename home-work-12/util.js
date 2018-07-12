@@ -13,7 +13,7 @@
             let result;
 
             try {
-                result = payloadFunction.apply(null, params);
+                result = payloadFunction(...params);
                 callback && callback(result);
             } catch (err) {
                 if (onError) {
@@ -24,8 +24,8 @@
             }
         };
 
-        return function () {
-            params = arguments;
+        return (...args) => {
+            params = args;
             clearTimeout(timerId);
 
             timerId = setTimeout(() => {
@@ -42,7 +42,7 @@
             let result;
 
             try {
-                result = payloadFunction.apply(null, params);
+                result = payloadFunction(...params);
                 lastParamsApplied = true;
                 params = undefined;
 
@@ -56,8 +56,8 @@
             }
         };
 
-        return function () {
-            params = arguments;
+        return (...args) => {
+            params = args;
             lastParamsApplied = false;
 
             if (intervalId === undefined) {
