@@ -10,12 +10,11 @@
 
     let getBlockElemets = blockId => {
 
-        let blockElement = $(`#${blockId}`);
+        let blockElement = $(`#${blockId}`),
+            input = blockElement.find('input'),
+            span = blockElement.find('span');
 
-        return {
-            input: blockElement.find('input'),
-            span: blockElement.find('span')
-        };
+        return {input, span};
     };
 
     let getFormatedName = input => getSeparateWords(input)
@@ -38,7 +37,7 @@
         let result;
 
         if (string) {
-            result = string.split(' ').filter((word) => !!word);
+            result = string.split(' ').filter(word => !!word);
         } else {
             result = [];
         }
