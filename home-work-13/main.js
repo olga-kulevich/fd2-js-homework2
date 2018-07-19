@@ -5,7 +5,7 @@
     loadDataButtonElement.addEventListener('click', () => {
         dataContainerElement.innerHTML = "";
         loadData('users.json', function (users) {
-            for (i=0; i<users.length; i++) {
+            for (let i = 0; i < users.length; i++) {
                 const dataBlockElement = createUserDataBlockElement(users[i]);
                 dataContainerElement.appendChild(dataBlockElement);
             };
