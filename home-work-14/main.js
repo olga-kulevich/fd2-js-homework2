@@ -1,5 +1,3 @@
-showMenu(menu, 100, 10);
-
 function showMenu(element, x, y) {
     let classList = element.classList,
         style = element.style,
@@ -13,6 +11,19 @@ function showMenu(element, x, y) {
 
     element.addEventListener('click', () => {
         classList.add(hideClass);
-    }, {once: true})
-}
+    }, {once: true});
+
+    document.body.addEventListener('click', () => {
+        classList.add(hideClass);
+    }, {once: true});
+};
+
+document.body.addEventListener('contextmenu', (event) => {
+    let clientX = event.clientX,
+        clientY = event.clientY,
+        menu = document.getElementById('menu');
+
+    showMenu(menu, clientX, clientY);
+    event.preventDefault();
+});
 
