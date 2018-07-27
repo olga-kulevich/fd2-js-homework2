@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home work 15</title>
+    <style>
+        body {
+            background: green;
+        }
+
+        .drop {
+            width: 580px;
+            height:400px;
+            background: url("./img/oblaco.PNG") no-repeat;
+            padding: 5px;
+        }
+
+        .drag {
+            width: 256px;
+            height: 256px;
+            cursor: pointer;
+            position: absolute;
+            margin-right: 10px;
+        }
+
+        #section {
+            height: 256px;
+        }
+
+        #img2  {
+            left: 256px;
+        }
+
+        #img3  {
+            left: 512px;
+        }
+    </style>
+</head>
+<body>
+    <section id="section">
+        <img src="./img/sun.png" class="drag" id="img1" draggable="true" ondragstart="return dragStart(event)">
+        <img src="./img/sun.png" class="drag" id="img2" draggable="true" ondragstart="return dragStart(event)">
+        <img src="./img/sun.png" class="drag" id="img3" draggable="true" ondragstart="return dragStart(event)">
+    </section>
+
+    <div class="drop" droppable="true" ondragenter="return dragEnter(event)"
+        ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
