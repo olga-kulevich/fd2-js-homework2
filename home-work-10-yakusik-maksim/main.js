@@ -6,18 +6,15 @@
     global.AppUtil = AppUtil;
 
     AppUtil.isValidEmail = function (value) {
-        // TODO need improve code here
-        return /email@gmail\.com/.test(value);
+        return (/^[0-9a-z-\.]+\@[0-9a-z-]{2,}\.[a-z]{2,}$/i).test(value);
     }
 
     AppUtil.isTime = function (value) {
-        // TODO need improve code here
-        return /23:59/.test(value);
+        return /^\d{2}:\d{2}$/gm.test(value);
     };
 
     AppUtil.isTimeIn12HourClock = function (value) {
-        // TODO need improve code here
-        return /12:00 pm/.test(value);
+        return /^(10|11|12|[1-9]):([0-5][0-9])\s(am|pm)$/.test(value);
     };
 
     AppUtil.isValidNumber = function(value) {

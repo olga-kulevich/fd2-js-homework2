@@ -1,13 +1,13 @@
 describe('regexp', function () {
 
-    xit('isValidEmail', function () {
+    it('isValidEmail', function () {
         expect(AppUtil.isValidEmail('email@gmail.com')).toBeTruthy();
         expect(AppUtil.isValidEmail('maksim.yakusik@intexsoft.by')).toBeTruthy();
 
         expect(AppUtil.isValidEmail('  maksim.yakusik@intexsoft.by')).toBeFalsy();
     });
 
-    xit('isTime', function () {
+    it('isTime', function () {
         expect(AppUtil.isTime('23:59')).toBeTruthy();
         expect(AppUtil.isTime('12:00')).toBeTruthy();
         expect(AppUtil.isTime('00:00')).toBeTruthy();
@@ -18,7 +18,7 @@ describe('regexp', function () {
         expect(AppUtil.isTime('25:34')).toBeTruthy();
     });
 
-    xit('isTimeIn12HourClock', function () {
+    it('isTimeIn12HourClock', function () {
         expect(AppUtil.isTimeIn12HourClock('12:00 pm')).toBeTruthy();
         expect(AppUtil.isTimeIn12HourClock('12:00 am')).toBeTruthy();
         expect(AppUtil.isTimeIn12HourClock('11:59 am')).toBeTruthy();
