@@ -1,0 +1,12 @@
+{
+  "name": "group_work_9",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "browser-sync start -s -w"
+  },
+  "author": "Maksim Yakusik",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "jasmine": "^3.1.0"
+  }
+}
