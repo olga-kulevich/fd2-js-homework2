@@ -1,0 +1,10 @@
+{
+  "name": "home-work-19",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "browser-sync start -s -w"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.6"
+  }
+}
