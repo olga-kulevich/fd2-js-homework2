@@ -1,0 +1,36 @@
+.passwordContainer {
+    width: 200px;
+}
+
+.passwordContainer > .password {
+    display: flex;
+    justify-content: space-between;
+}
+
+.passwordContainer > .info {
+    height: 4px;
+    margin-top: 2px;
+    background: red;
+    width: 0;
+    transition: 1s;
+}
+
+.passwordContainer.weak > .info {
+    background: red;
+    width: 15%;
+}
+
+.passwordContainer.light > .info {
+    background: #ff9f00;
+    width: 35%;
+}
+
+.passwordContainer.normal > .info {
+    background: #fffc03;
+    width: 70%;
+}
+
+.passwordContainer.strong > .info {
+    background: #0eff5c;
+    width: 100%;
+}
