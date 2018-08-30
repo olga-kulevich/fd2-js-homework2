@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>home work 17</title>
+</head>
+<body>
+    <canvas width="500" height="500"></canvas>
+    <script>
+        const canvasElement = document.querySelector('canvas'),
+              ctx = canvasElement.getContext('2d');
+
+        ctx.fillStyle = 'green';
+        ctx.beginPath();
+        ctx.arc(70,45,30,0,Math.PI*2);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.arc(70,45,15,0,Math.PI*2, false);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.fillStyle = 'green';
+        ctx.beginPath();
+        ctx.moveTo(150, 20);
+        ctx.lineTo(120, 75);
+        ctx.lineTo(180, 75);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.moveTo(150, 45);
+        ctx.lineTo(135, 75);
+        ctx.lineTo(165, 75);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.fillStyle = 'green';
+        ctx.beginPath();
+        ctx.arc(230, 40, 20, Math.PI*0.5, Math.PI*1.5, false);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.arc(230, 40, 9, Math.PI*0.5, Math.PI*1.5, false);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.fillStyle = 'green';
+        ctx.beginPath();
+        ctx.fillRect(230, 20, 12, 55);
+        ctx.moveTo(242, 35);
+        ctx.lineTo(210, 75);
+        ctx.lineTo(242, 75);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.moveTo(230, 65);
+        ctx.lineTo(223, 75);
+        ctx.lineTo(230, 75);
+        ctx.fill();
+        ctx.closePath();
+    </script>
+</body>
+</html>
