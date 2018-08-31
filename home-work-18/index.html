@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>home work 18</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div style="color: red; font-size: 40px;" id="coordinates"></div>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext('2d');
+        var sizeBoard = 512;
+        var sizeCell = 64;
+        var offset = 10;
+
+        canvas.width = 530;
+        canvas.height = 530;
+        ctx.strokeStyle = 'green';
+        ctx.strokeRect(offset, offset, sizeBoard, sizeBoard);
+        ctx.fillStyle = 'green';
+        ctx.fillRect(offset, offset, sizeBoard, sizeBoard);
+
+        for (var i = 0; i < 8; i+= 2) {
+            for (var j = 0; j < 8; j+= 2) {
+                ctx.clearRect(offset + i*sizeCell, offset + j*sizeCell, sizeCell, sizeCell);
+                ctx.clearRect(offset + (i + 1)*sizeCell, offset + (j + 1)*sizeCell, sizeCell, sizeCell);
+            }
+        }
+
+        canvas.addEventListener('click', function(event) {
+            var mouseX = event.pageX,
+                mouseY = event.pageY;
+            var x;
+            var y;
+
+
+            if (mouseX < (offset + sizeCell)) {
+                x = 'A';
+            } else if (mouseX < (offset + sizeCell*2)) {
+                x = 'B';
+            } else if (mouseX < (offset + sizeCell*3)) {
+                x = 'C';
+            } else if (mouseX < (offset + sizeCell*4)) {
+                x = 'D';
+            } else if (mouseX < (offset + sizeCell*5)) {
+                x = 'E';
+            } else if (mouseX < (offset + sizeCell*6)) {
+                x = 'F';
+            } else if (mouseX < (offset + sizeCell*7)) {
+                x = 'G';
+            } else if (mouseX < (offset + sizeCell*8)) {
+                x = 'H';
+            }
+
+            for (var j = 1; j < 9 ; j++) {
+                if (mouseY < (10 + j*sizeCell)) {
+                    y = 9 - j;
+                    break;
+                }
+            }
+
+        document.getElementById('coordinates').innerHTML = x + y;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "home-work-18",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "browser-sync start -s -w"
+  },
+  "author": "Olga",
+  "devDependencies": {
+    "browser-sync": "^2.24.4"
+  }
+}
